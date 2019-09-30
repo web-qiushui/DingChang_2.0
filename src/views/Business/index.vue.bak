@@ -1,0 +1,129 @@
+<template>
+    <div class="businessContainer">
+      <div class="bannerContainer">
+        <img src="@/assets/img/banner_2.png" alt="" class="bannerImgCls">
+      </div>
+      <div class="contentContainer">
+        <div class="titleContainer">
+          <p>
+            <span>公司业务</span>
+            <i>-- COMPANY BUSINESS --</i>
+          </p>
+        </div>
+        <div class="subContentContainer" >
+          <div class="subTitleContainer">
+            <div class="subTitleCls" v-for="(item,index) in subContentTitleList" :key="index">
+              {{ item.name }}
+            </div>
+          </div>
+          <div class="subContent">
+            <el-row :gutter="22">
+              <el-col :span="6" v-for="(item, index) in subContentList" :key="index" :offset="index > 0 ? 2 : 1">
+                <el-card :body-style="{ padding: '0px' }">
+                  <img :src="item.pic" class="imgCls">
+                  <div style="padding: 14px;">
+                    <span style="font-size:16px;color:#878787">{{ item.title}}</span>
+                  </div>
+                  <div style="padding: 14px;">
+                    <span style="font-size:14px;color:#878787">{{ item.text}}</span>
+                  </div>
+                </el-card>
+              </el-col>
+            </el-row>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+</template>
+<script>
+export default {
+  name: 'Business',
+  data () {
+    return {
+      subContentTitleList:[
+        {
+          name:"宽带提供"
+        },
+        {
+          name:"网络互联"
+        },
+        {
+          name:"技术支持"
+        }
+      ],
+      subContentList:[{
+        index:1,
+        pic:require("@/assets/img/result_1.png"),
+        title:'业务名称一',
+        text:'简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍'
+      },{
+        index:2,
+        pic:require("@/assets/img/result_2.png"),
+        title:'业务名称二',
+        text:'简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍'
+      },{
+        index:3,
+        pic:require("@/assets/img/result_3.png"),
+        title:'业务名称三',
+        text:'简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍简单介绍'
+      }]
+    }
+  },
+  methods: {
+
+  }
+}
+</script>
+<style lang="less" scoped>
+  .businessContainer{
+    width:100%;
+    .bannerContainer{
+      width:100%;
+      .bannerImgCls{
+        width:100%;
+      }
+    }
+    .contentContainer{
+      padding:20px 60px;
+      background-color: #FFFAFA;
+      .titleContainer{
+        text-align:center;
+        font-size:22px;
+        font-weight:600;
+        color:#454545;
+        span{
+          display:block;
+        }
+        i{
+          display:block;
+          margin-top:10px;
+          font-size:18px;
+        }
+      }
+      .subContentContainer{
+        text-align:left;
+        .subTitleContainer{
+          margin-left:35%;
+        }
+        .subTitleCls{
+          width:180px;
+          height:32px;
+          line-height:32px;
+          margin:30px auto;
+          background-color: #022C6B;
+          color:#FEFEFE;
+          font-size:18px;
+          border-radius: 3px;
+          text-align:center;
+          display:inline-block;
+          width:20%;
+          cursor: pointer;
+        }
+        .imgCls{
+          width:100%;
+        }
+      }
+    }
+  }
+</style>
